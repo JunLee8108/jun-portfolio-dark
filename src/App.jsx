@@ -303,7 +303,9 @@ const App = () => {
                 </button>
 
                 <a
-                  href="#"
+                  href="https://zqwnmkwetnivvyqtmrjp.supabase.co/storage/v1/object/public/resume/Jeong%20Hyun%20Lee%20-%20Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-gray-500 hover:text-white transition-colors text-sm uppercase tracking-wider"
                 >
                   Resume
@@ -316,7 +318,9 @@ const App = () => {
               <div className="space-y-8">
                 <div className="flex items-center space-x-3 text-sm">
                   <Circle className="w-2 h-2 fill-green-500 text-green-500" />
-                  <span className="text-gray-500">Available for projects</span>
+                  <span className="text-gray-500">
+                    Available for full-time positions
+                  </span>
                 </div>
 
                 <div className="pt-8 border-t border-gray-800">
@@ -445,7 +449,7 @@ const App = () => {
                     ].map((skill) => (
                       <span
                         key={skill}
-                        className="text-sm px-3 py-1 bg-gray-900/50 rounded-full"
+                        className="text-xs px-3 py-1 bg-gray-900/50 rounded-full"
                       >
                         {skill}
                       </span>
@@ -471,7 +475,7 @@ const App = () => {
                     ].map((skill) => (
                       <span
                         key={skill}
-                        className="text-sm px-3 py-1 bg-gray-900/50 rounded-full"
+                        className="text-xs px-3 py-1 bg-gray-900/50 rounded-full"
                       >
                         {skill}
                       </span>
@@ -694,7 +698,7 @@ const App = () => {
             <p className="text-gray-500 mb-4 tracking-wide text-sm uppercase">
               Contact
             </p>
-            <h2 className="text-4xl lg:text-5xl font-light mb-8">
+            <h2 className="text-4xl font-light tracking-[0.01em] mb-8">
               Let's Work Together
             </h2>
             <p className="text-gray-400 text-lg mb-12 leading-relaxed">
@@ -709,7 +713,7 @@ const App = () => {
                 </p>
                 <a
                   href="mailto:lejhn1@gmail.com"
-                  className="text-2xl hover:text-cyan-500 transition-colors"
+                  className="text-xl hover:text-cyan-500 transition-colors"
                 >
                   lejhn1@gmail.com
                 </a>
@@ -721,7 +725,7 @@ const App = () => {
                 </p>
                 <a
                   href="tel:+12107051438"
-                  className="text-2xl hover:text-cyan-500 transition-colors"
+                  className="text-xl hover:text-cyan-500 transition-colors"
                 >
                   +1 (210) 705-1438
                 </a>
