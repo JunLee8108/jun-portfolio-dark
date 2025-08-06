@@ -495,9 +495,7 @@ const App = () => {
             <p className="text-gray-500 mb-4 tracking-wide text-sm uppercase">
               Selected Work
             </p>
-            <h2 className="text-4xl font-light tracking-[0.01em]">
-              Recent Projects
-            </h2>
+            <h2 className="text-4xl font-light tracking-[0.01em]">Projects</h2>
           </div>
 
           {loading ? (
