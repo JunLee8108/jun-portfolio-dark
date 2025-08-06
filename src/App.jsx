@@ -24,6 +24,8 @@ const App = () => {
   const [modalImage, setModalImage] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const [showAllProjects, setShowAllProjects] = useState(false);
+
   // Form
   const [formData, setFormData] = useState({
     name: "",
@@ -56,7 +58,7 @@ const App = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "work", "about", "contact"];
+      const sections = ["home", "about", "work", "contact"];
       const current = sections.find((section) => {
         const element = document.getElementById(section);
         if (element) {
@@ -210,8 +212,8 @@ const App = () => {
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-12">
               {[
-                { name: "Work", id: "work" },
                 { name: "About", id: "about" },
+                { name: "Work", id: "work" },
                 { name: "Contact", id: "contact" },
               ].map((item) => (
                 <button
@@ -246,7 +248,7 @@ const App = () => {
         {isMenuOpen && (
           <div className="md:hidden bg-gray-950 border-b border-gray-900">
             <div className="px-8 py-6 space-y-4">
-              {["Work", "About", "Contact"].map((item) => (
+              {["About", "Work", "Contact"].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
@@ -343,8 +345,15 @@ const App = () => {
               <p className="text-gray-500 mb-4 tracking-wide text-sm uppercase">
                 About
               </p>
-              <h2 className="text-4xl lg:text-5xl font-light mb-8">
-                Hello, I'm Jun
+              <h2
+                className="text-4xl lg:text-5xl font-light mb-8"
+                style={{ lineHeight: "1.2" }}
+              >
+                Turning Ideas Into
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
+                  Digital Reality
+                </span>
               </h2>
               <div className="space-y-6 text-gray-400 leading-relaxed">
                 <p>
@@ -368,7 +377,9 @@ const App = () => {
 
               <div className="mt-12">
                 <a
-                  href="#"
+                  href="https://zqwnmkwetnivvyqtmrjp.supabase.co/storage/v1/object/public/resume/Jeong%20Hyun%20Lee%20-%20Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 text-sm uppercase tracking-wider border border-gray-700 px-6 py-3 rounded-full hover:bg-gray-900 transition-colors"
                 >
                   <Download className="w-4 h-4" />
@@ -386,28 +397,28 @@ const App = () => {
               <div className="grid grid-cols-2 gap-6 mb-12">
                 <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-cyan-500/50 transition-colors">
                   <Code2 className="w-8 h-8 text-cyan-500 mb-4" />
-                  <h3 className="text-lg font-medium mb-2">Frontend</h3>
+                  <h3 className="text-base font-medium mb-2">Frontend</h3>
                   <p className="text-gray-500 text-sm">
                     React, Next.js, TypeScript, Vue.js
                   </p>
                 </div>
                 <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-purple-500/50 transition-colors">
                   <Palette className="w-8 h-8 text-purple-500 mb-4" />
-                  <h3 className="text-lg font-medium mb-2">Design</h3>
+                  <h3 className="text-base font-medium mb-2">Design</h3>
                   <p className="text-gray-500 text-sm">
                     UI/UX, Figma, Design Systems
                   </p>
                 </div>
                 <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-green-500/50 transition-colors">
                   <Zap className="w-8 h-8 text-green-500 mb-4" />
-                  <h3 className="text-lg font-medium mb-2">Performance</h3>
+                  <h3 className="text-base font-medium mb-2">Performance</h3>
                   <p className="text-gray-500 text-sm">
                     Optimization, SEO, Core Web Vitals
                   </p>
                 </div>
                 <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-orange-500/50 transition-colors">
                   <Sparkles className="w-8 h-8 text-orange-500 mb-4" />
-                  <h3 className="text-lg font-medium mb-2">Innovation</h3>
+                  <h3 className="text-base font-medium mb-2">Innovation</h3>
                   <p className="text-gray-500 text-sm">
                     WebGL, Three.js, Animation
                   </p>
@@ -490,166 +501,186 @@ const App = () => {
               <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-cyan-500"></div>
             </div>
           ) : (
-            <div className="space-y-32">
-              {projects.map((project, index) => (
-                <div key={project.id} className="group">
-                  <div className="grid lg:grid-cols-12 gap-8 items-start mb-12">
-                    {/* Project Number */}
-                    <div className="lg:col-span-1">
-                      <span className="text-gray-600 text-sm">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                    </div>
+            <>
+              <div className="space-y-32">
+                {(showAllProjects ? projects : projects.slice(0, 3)).map(
+                  (project, index) => (
+                    <div key={project.id} className="group">
+                      <div className="grid lg:grid-cols-12 gap-8 items-start mb-12">
+                        {/* Project Number */}
+                        <div className="lg:col-span-1">
+                          <span className="text-gray-600 text-sm">
+                            {String(index + 1).padStart(2, "0")}
+                          </span>
+                        </div>
 
-                    {/* Left Column: Title, Description, Links */}
-                    <div className="lg:col-span-5">
-                      <h3 className="text-3xl font-bold mb-4 group-hover:text-cyan-500 transition-colors">
-                        {project.title}
-                      </h3>
-                      <p className="text-gray-400 mb-6 leading-relaxed">
-                        {project.description}
-                      </p>
+                        {/* Left Column: Title, Description, Links */}
+                        <div className="lg:col-span-5">
+                          <h3 className="text-3xl font-medium mb-4 group-hover:text-cyan-500 transition-colors">
+                            {project.title}
+                          </h3>
+                          <p className="text-gray-400 mb-6 leading-relaxed">
+                            {project.description}
+                          </p>
 
-                      {/* Links */}
-                      <div className="flex items-center space-x-6">
-                        {project.project_link && (
-                          <a
-                            href={project.project_link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center space-x-2 text-sm uppercase tracking-wider group/link hover:text-cyan-500 transition-colors"
-                          >
-                            <span>View Project</span>
-                            <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1" />
-                          </a>
-                        )}
-                        {project.github_link && (
-                          <a
-                            href={project.github_link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center space-x-2 text-sm text-gray-500 hover:text-white transition-colors"
-                          >
-                            <Github className="w-4 h-4" />
-                            <span>Github</span>
-                          </a>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Right Column: Features and Tech Stack */}
-                    <div className="lg:col-span-5">
-                      {/* Features List */}
-                      {project.feature && project.feature.length > 0 && (
-                        <div className="mb-6">
-                          <h4 className="text-xs uppercase tracking-wider text-gray-500 mb-3">
-                            Key Features
-                          </h4>
-                          <ul className="space-y-1.5">
-                            {(expandedFeatures[project.id]
-                              ? project.feature
-                              : project.feature.slice(0, 3)
-                            ).map((feat, featIndex) => (
-                              <li
-                                key={featIndex}
-                                className="flex items-start space-x-2 text-gray-300"
+                          {/* Links */}
+                          <div className="flex items-center space-x-6">
+                            {project.project_link && (
+                              <a
+                                href={project.project_link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center space-x-2 text-sm uppercase tracking-wider group/link hover:text-cyan-500 transition-colors"
                               >
-                                <span className="text-cyan-500 text-sm mt-0.5">
-                                  •
-                                </span>
-                                <span className="text-sm leading-relaxed">
-                                  {feat}
-                                </span>
-                              </li>
-                            ))}
-                          </ul>
+                                <span>View Project</span>
+                                <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1" />
+                              </a>
+                            )}
+                            {project.github_link && (
+                              <a
+                                href={project.github_link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center space-x-2 text-sm text-gray-500 hover:text-white transition-colors"
+                              >
+                                <Github className="w-4 h-4" />
+                                <span>Github</span>
+                              </a>
+                            )}
+                          </div>
+                        </div>
 
-                          {/* Show more/less button */}
-                          {project.feature.length > 3 && (
-                            <button
-                              onClick={() => toggleFeatures(project.id)}
-                              className="mt-3 text-xs text-gray-500 hover:text-cyan-500 transition-colors uppercase tracking-wider flex items-center space-x-1"
-                            >
-                              <span>
-                                {expandedFeatures[project.id]
-                                  ? "Show less"
-                                  : `View all ${project.feature.length} features`}
-                              </span>
-                              <ArrowUpRight
-                                className={`w-3 h-3 transition-transform ${
-                                  expandedFeatures[project.id]
-                                    ? "rotate-180"
-                                    : ""
-                                }`}
-                              />
-                            </button>
+                        {/* Right Column: Features and Tech Stack */}
+                        <div className="lg:col-span-5">
+                          {/* Features List */}
+                          {project.feature && project.feature.length > 0 && (
+                            <div className="mb-6">
+                              <h4 className="text-xs uppercase tracking-wider text-gray-500 mb-3">
+                                Key Features
+                              </h4>
+                              <ul className="space-y-1.5">
+                                {(expandedFeatures[project.id]
+                                  ? project.feature
+                                  : project.feature.slice(0, 3)
+                                ).map((feat, featIndex) => (
+                                  <li
+                                    key={featIndex}
+                                    className="flex items-start space-x-2 text-gray-300"
+                                  >
+                                    <span className="text-cyan-500 text-sm mt-0.5">
+                                      •
+                                    </span>
+                                    <span className="text-sm leading-relaxed">
+                                      {feat}
+                                    </span>
+                                  </li>
+                                ))}
+                              </ul>
+
+                              {/* Show more/less button */}
+                              {project.feature.length > 3 && (
+                                <button
+                                  onClick={() => toggleFeatures(project.id)}
+                                  className="mt-3 text-xs text-gray-500 hover:text-cyan-500 transition-colors uppercase tracking-wider flex items-center space-x-1"
+                                >
+                                  <span>
+                                    {expandedFeatures[project.id]
+                                      ? "Show less"
+                                      : `View all ${project.feature.length} features`}
+                                  </span>
+                                  <ArrowUpRight
+                                    className={`w-3 h-3 transition-transform ${
+                                      expandedFeatures[project.id]
+                                        ? "rotate-180"
+                                        : ""
+                                    }`}
+                                  />
+                                </button>
+                              )}
+                            </div>
+                          )}
+
+                          {/* Tech Stack */}
+                          {project.tech && project.tech.length > 0 && (
+                            <div>
+                              <h4 className="text-xs uppercase tracking-wider text-gray-500 mb-3">
+                                Tech Stack
+                              </h4>
+                              <div className="flex flex-wrap gap-2">
+                                {project.tech.map((tech) => (
+                                  <span
+                                    key={tech}
+                                    className="text-xs text-gray-400 px-2.5 py-1 border border-gray-800 rounded-full hover:border-gray-600 transition-colors"
+                                  >
+                                    {tech}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
                           )}
                         </div>
-                      )}
 
-                      {/* Tech Stack */}
-                      {project.tech && project.tech.length > 0 && (
-                        <div>
-                          <h4 className="text-xs uppercase tracking-wider text-gray-500 mb-3">
-                            Tech Stack
-                          </h4>
-                          <div className="flex flex-wrap gap-2">
-                            {project.tech.map((tech) => (
-                              <span
-                                key={tech}
-                                className="text-xs text-gray-400 px-2.5 py-1 border border-gray-800 rounded-full hover:border-gray-600 transition-colors"
+                        {/* Year - Far right */}
+                        <div className="lg:col-span-1 lg:text-right">
+                          <span className="text-gray-600 text-sm">
+                            {project.year}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Image Gallery - Unchanged */}
+                      {project.images && project.images.length > 0 && (
+                        <div className="lg:pl-[8.333%]">
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            {project.images.map((image, imgIndex) => (
+                              <div
+                                key={imgIndex}
+                                className="relative aspect-[4/3] bg-gray-900 rounded-lg overflow-hidden group/img cursor-pointer"
+                                onClick={() => openModal(image)}
                               >
-                                {tech}
-                              </span>
+                                <img
+                                  src={image}
+                                  alt={`${project.title} ${imgIndex + 1}`}
+                                  className="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-105"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-gray-950/50 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300" />
+                              </div>
                             ))}
                           </div>
                         </div>
                       )}
                     </div>
+                  )
+                )}
+              </div>
 
-                    {/* Year - Far right */}
-                    <div className="lg:col-span-1 lg:text-right">
-                      <span className="text-gray-600 text-sm">
-                        {project.year}
+              {/* View More/Less Projects Button */}
+              {projects.length > 3 && (
+                <div className="mt-30 text-center">
+                  <button
+                    onClick={() => setShowAllProjects(!showAllProjects)}
+                    className="group relative inline-flex items-center justify-center px-8 py-4 overflow-hidden rounded-full bg-gradient-to-br from-cyan-500/10 to-purple-500/10 border border-gray-800 hover:border-cyan-500/50 transition-all duration-300"
+                  >
+                    <span className="relative flex items-center space-x-3">
+                      <span className="text-sm uppercase tracking-wider">
+                        {showAllProjects
+                          ? "Show Less"
+                          : `Want to see ${projects.length - 3} more projects?`}
                       </span>
-                    </div>
-                  </div>
-
-                  {/* Image Gallery - Unchanged */}
-                  {project.images && project.images.length > 0 && (
-                    <div className="lg:pl-[8.333%]">
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        {project.images.map((image, imgIndex) => (
-                          <div
-                            key={imgIndex}
-                            className="relative aspect-[4/3] bg-gray-900 rounded-lg overflow-hidden group/img cursor-pointer"
-                            onClick={() => openModal(image)}
-                          >
-                            <img
-                              src={image}
-                              alt={`${project.title} ${imgIndex + 1}`}
-                              className="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-105"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-gray-950/50 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300" />
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+                      <ArrowUpRight
+                        className={`w-4 h-4 transition-all duration-300 ${
+                          showAllProjects
+                            ? "rotate-180"
+                            : "group-hover:translate-x-1 group-hover:-translate-y-1"
+                        }`}
+                      />
+                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
+                  </button>
                 </div>
-              ))}
-            </div>
+              )}
+            </>
           )}
-
-          <div className="mt-20 text-center">
-            <a
-              href="#"
-              className="inline-flex items-center space-x-2 text-sm uppercase tracking-wider text-gray-500 hover:text-white transition-colors"
-            >
-              <span>View Archive</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </a>
-          </div>
         </div>
       </section>
 
