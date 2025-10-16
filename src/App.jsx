@@ -2,7 +2,7 @@ import Home from "./pages/Home";
 import DiaryFriend from "./pages/diaryfriend/DiaryFriend";
 import DiaryFriendPrivacy from "./pages/diaryfriend/DiaryFriendPrivacy";
 import DiaryFriendSupport from "./pages/diaryfriend/DiaryFriendSupport";
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router";
 import { useState, useEffect } from "react";
 
