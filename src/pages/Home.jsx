@@ -37,7 +37,7 @@ const Home = () => {
     const fetchProjects = async () => {
       try {
         const { data, error } = await supabase
-          .from("Project")
+          .from("projects")
           .select("*")
           .order("number", { ascending: true });
 
