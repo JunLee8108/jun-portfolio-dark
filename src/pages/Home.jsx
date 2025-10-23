@@ -211,7 +211,7 @@ const Home = () => {
                 </button>
 
                 <a
-                  href="https://zqwnmkwetnivvyqtmrjp.supabase.co/storage/v1/object/public/resume/Jeong%20Hyun%20Lee%20-%20Resume.pdf"
+                  href="https://fphyfozhtxwdrxsyvumz.supabase.co/storage/v1/object/public/resumes/Jeong%20Hyun%20Lee%20-%20Resume%20(4).pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-500 hover:text-white transition-colors text-sm uppercase tracking-wider"
@@ -238,11 +238,15 @@ const Home = () => {
                   <div className="flex flex-wrap gap-4">
                     <span className="text-sm">Swift</span>
                     <span className="text-gray-600">•</span>
+                    <span className="text-sm">JavaScript</span>
+                    <span className="text-gray-600">•</span>
+                    <span className="text-sm">TypeScript</span>
+                    <span className="text-gray-600">•</span>
                     <span className="text-sm">React</span>
                     <span className="text-gray-600">•</span>
                     <span className="text-sm">Next.js</span>
                     <span className="text-gray-600">•</span>
-                    <span className="text-sm">TypeScript</span>
+                    <span className="text-sm">Python</span>
                   </div>
                 </div>
               </div>
@@ -291,7 +295,7 @@ const Home = () => {
 
               <div className="mt-12">
                 <a
-                  href="https://zqwnmkwetnivvyqtmrjp.supabase.co/storage/v1/object/public/resume/Jeong%20Hyun%20Lee%20-%20Resume.pdf"
+                  href="https://fphyfozhtxwdrxsyvumz.supabase.co/storage/v1/object/public/resumes/Jeong%20Hyun%20Lee%20-%20Resume%20(4).pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 text-sm uppercase tracking-wider border border-gray-700 px-6 py-3 rounded-full hover:bg-gray-900 transition-colors"
@@ -428,7 +432,7 @@ const Home = () => {
 
                         {/* Left Column: Title, Description, Links */}
                         <div className="lg:col-span-5">
-                          <h3 className="text-3xl font-medium mb-4 group-hover:text-cyan-500 transition-colors">
+                          <h3 className="text-3xl font-medium mb-4">
                             {project.title}
                           </h3>
                           <p className="text-gray-400 mb-6 leading-relaxed">
@@ -599,7 +603,7 @@ const Home = () => {
       {/* Contact Section */}
       <section
         id="contact"
-        className="min-h-screen flex items-center py-32 px-8"
+        className="min-h-screen flex items-center py-32 px-8 bg-gray-900/20"
       >
         <div className="max-w-6xl mx-auto w-full">
           <div className="max-w-2xl">
