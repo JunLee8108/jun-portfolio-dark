@@ -274,22 +274,26 @@ const Home = () => {
                 </span>
               </h2>
               <div className="space-y-6 text-gray-400 leading-relaxed">
-                <p>
-                  I'm a frontend developer with a passion for creating clean,
-                  functional, and user-centered digital experiences. With a
-                  background in both design and development, I bridge the gap
-                  between aesthetics and functionality.
+                <p className="text-lg leading-relaxed">
+                  With hands-on experience across the Microsoft Power Platform,
+                  I’ve built and deployed systems using Power Apps
+                  (Model-Driven), Power Automate, Power Pages, and SharePoint —
+                  integrating Dataverse for secure and scalable data management.
                 </p>
-                <p>
-                  My approach focuses on simplicity and clarity, ensuring that
-                  every project not only looks good but also provides value to
-                  its users. I believe in the power of minimalism and thoughtful
-                  design decisions.
+                <p className="text-lg leading-relaxed">
+                  Beyond enterprise automation, I also develop full-stack and
+                  mobile applications. I recently developed{" "}
+                  <strong>DiaryFriend</strong> — an iOS app where users can chat
+                  with AI companions to automatically generate personal diaries.
+                  Additionally, I’ve built and contributed to various modern web
+                  applications using React, Next.js, TypeScript, Supabase, and
+                  MongoDB.
                 </p>
-                <p>
-                  When I'm not coding, you'll find me exploring new
-                  technologies, contributing to open-source projects, or sharing
-                  knowledge with the developer community.
+                <p className="text-lg leading-relaxed">
+                  My approach centers on simplicity and clarity, ensuring that
+                  every project not only looks great but also delivers genuine
+                  value to its users. I believe in the power of minimalism and
+                  thoughtful design decisions.
                 </p>
               </div>
 
@@ -315,30 +319,33 @@ const Home = () => {
               <div className="grid grid-cols-2 gap-6 mb-12">
                 <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-cyan-500/50 transition-colors">
                   <Code2 className="w-8 h-8 text-cyan-500 mb-4" />
-                  <h3 className="text-base mb-2">Frontend</h3>
+                  <h3 className="text-base mb-2">Power Platform</h3>
                   <p className="text-gray-500 text-sm">
-                    React, Next.js, TypeScript, Vue.js
+                    Power Apps (Model-Driven), Power Automate, Power Pages,
+                    SharePoint, Dataverse
                   </p>
                 </div>
                 <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-purple-500/50 transition-colors">
                   <Palette className="w-8 h-8 text-purple-500 mb-4" />
-                  <h3 className="text-base mb-2">Design</h3>
+                  <h3 className="text-base mb-2">Design & Experience</h3>
                   <p className="text-gray-500 text-sm">
-                    UI/UX, Figma, Design Systems
+                    Minimal UI/UX, Figma, Design Systems, Accessibility,
+                    Consistency
                   </p>
                 </div>
                 <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-green-500/50 transition-colors">
                   <Zap className="w-8 h-8 text-green-500 mb-4" />
-                  <h3 className="text-base mb-2">Performance</h3>
+                  <h3 className="text-base mb-2">Full-Stack Development</h3>
                   <p className="text-gray-500 text-sm">
-                    Optimization, SEO, Core Web Vitals
+                    React, Next.js, TypeScript, Supabase, MongoDB, iOS (Swift)
                   </p>
                 </div>
                 <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-orange-500/50 transition-colors">
                   <Sparkles className="w-8 h-8 text-orange-500 mb-4" />
-                  <h3 className="text-base mb-2">Innovation</h3>
+                  <h3 className="text-base mb-2">Mindset & Innovation</h3>
                   <p className="text-gray-500 text-sm">
-                    WebGL, Three.js, Animation
+                    Performance Optimization, Automation, Open Source,
+                    Continuous Learning
                   </p>
                 </div>
               </div>
