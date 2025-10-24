@@ -439,7 +439,7 @@ const Home = () => {
 
                         {/* Left Column: Title, Description, Links */}
                         <div className="lg:col-span-5">
-                          <h3 className="text-3xl font-medium mb-4">
+                          <h3 className="text-2xl font-medium mb-4">
                             {project.title}
                           </h3>
                           <p className="text-gray-400 mb-6 leading-relaxed">
